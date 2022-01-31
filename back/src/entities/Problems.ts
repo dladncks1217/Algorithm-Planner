@@ -21,11 +21,11 @@ export class Problems {
   @Column('varchar', { name: 'solveDate', length: 10 })
   solvedate: string;
 
-  @Column('boolean', { name: 'success' })
-  success: boolean;
+  @Column('varchar', { name: 'success' })
+  success: string;
 
-  @Column('boolean', { name: 'resolve' })
-  resolve: boolean;
+  @Column('varchar', { name: 'resolve' })
+  resolve: string;
 
   @CreateDateColumn()
   createdAt: Date;

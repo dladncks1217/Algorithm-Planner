@@ -31,8 +31,8 @@ export class YearService {
     name: string,
     year: number,
     solveDate: string,
-    success: boolean,
-    resolve: boolean,
+    success: string,
+    resolve: string,
   ) {
     try {
       console.log(name);
