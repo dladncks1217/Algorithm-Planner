@@ -45,21 +45,33 @@ export class YearService {
     return result;
   }
 
+  async typeProblem(type: string) {
+    let result = await this.problemRepository.find({
+      where: {
+        type,
+      },
+    });
+    return result;
+  }
+
   async addProblems(
     problemname: string,
+    types: string,
     year: number,
     solvedate: string,
     success: string,
     review: string,
   ) {
     try {
-      await this.problemRepository.save({
+      let result = await this.problemRepository.save({
         problemname,
+        types,
         year,
         solvedate,
         success,
         review,
       });
+      return result;
     } catch (e) {
       console.error(e);
       return e;
