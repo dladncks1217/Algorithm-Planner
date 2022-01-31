@@ -32,7 +32,7 @@ export class YearService {
     year: number,
     solveDate: string,
     success: string,
-    resolve: string,
+    review: string,
   ) {
     try {
       console.log(name);
@@ -41,7 +41,7 @@ export class YearService {
         year,
         solvedate: solveDate,
         success,
-        resolve,
+        review,
       });
     } catch (e) {
       console.error(e);

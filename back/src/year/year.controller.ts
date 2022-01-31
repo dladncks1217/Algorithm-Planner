@@ -23,7 +23,7 @@ export class YearController {
       body.year,
       body.solveDate,
       body.success,
-      body.resolve,
+      body.review,
     );
   }
 }

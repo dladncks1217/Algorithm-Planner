@@ -24,8 +24,8 @@ export class Problems {
   @Column('varchar', { name: 'success' })
   success: string;
 
-  @Column('varchar', { name: 'resolve' })
-  resolve: string;
+  @Column('varchar', { name: 'review' })
+  review: string;
 
   @CreateDateColumn()
   createdAt: Date;
