@@ -37,9 +37,9 @@ export class YearService {
     try {
       console.log(name);
       await this.problemRepository.save({
-        name,
+        problemname: name,
         year,
-        solveDate,
+        solvedate: solveDate,
         success,
         resolve,
       });

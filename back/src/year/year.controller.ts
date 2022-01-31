@@ -17,8 +17,8 @@ export class YearController {
   }
 
   @Post('/add')
-  addProblems(@Body() body) {
-    return this.yearService.addProblems(
+  async addProblems(@Body() body) {
+    return await this.yearService.addProblems(
       body.name,
       body.year,
       body.solveDate,
