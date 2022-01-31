@@ -27,19 +27,36 @@ export class YearService {
     return result;
   }
 
+  async reviewed() {
+    let result = await this.problemRepository.find({
+      where: {
+        review: 'true',
+      },
+    });
+    return result;
+  }
+
+  async notReviewed() {
+    let result = await this.problemRepository.find({
+      where: {
+        review: 'false',
+      },
+    });
+    return result;
+  }
+
   async addProblems(
-    name: string,
+    problemname: string,
     year: number,
-    solveDate: string,
+    solvedate: string,
     success: string,
     review: string,
   ) {
     try {
-      console.log(name);
       await this.problemRepository.save({
-        problemname: name,
+        problemname,
         year,
-        solvedate: solveDate,
+        solvedate,
         success,
         review,
       });
