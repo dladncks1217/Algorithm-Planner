@@ -49,8 +49,8 @@ export class YearController {
   })
   @ApiOperation({ summary: '문제 타입별 조회' })
   @Post('/typecheck/:type(*)')
-  async typeProblem(@Param('type') type: string) {
-    return await this.yearService.typeProblem(type);
+  async typeProblem(@Param('type') problemtype: string) {
+    return await this.yearService.typeProblem(problemtype);
   }
 
   @Post('/add')

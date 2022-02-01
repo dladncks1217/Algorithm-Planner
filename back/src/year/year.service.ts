@@ -45,10 +45,11 @@ export class YearService {
     return result;
   }
 
-  async typeProblem(type: string) {
+  async typeProblem(problemtype: string) {
+    console.log('asdf');
     let result = await this.problemRepository.find({
       where: {
-        type,
+        problemtype,
       },
     });
     return result;
@@ -63,7 +64,6 @@ export class YearService {
     review: string,
   ) {
     try {
-      console.log('asdf');
       let result = await this.problemRepository.save({
         problemname,
         problemtype,
