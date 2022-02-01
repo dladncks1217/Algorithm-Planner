@@ -3,7 +3,7 @@ import { Problems } from 'src/entities/Problems';
 
 export class ProblemAddtDto extends PickType(Problems, [
   'problemname',
-  'types',
+  'problemtype',
   'year',
   'solvedate',
   'success',

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Param, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ProblemAddtDto } from './dto/save.request.dto';
 import { YearService } from './year.service';
@@ -57,7 +57,7 @@ export class YearController {
   async addProblems(@Body() body: ProblemAddtDto) {
     return await this.yearService.addProblems(
       body.problemname,
-      body.types,
+      body.problemtype,
       body.year,
       body.solvedate,
       body.success,

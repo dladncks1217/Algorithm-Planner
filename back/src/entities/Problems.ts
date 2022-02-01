@@ -15,8 +15,8 @@ export class Problems {
   @Column('varchar', { name: 'problemName', length: 30 })
   problemname: string;
 
-  @Column('varchar', { name: 'types', length: 20 })
-  types: string;
+  @Column('varchar', { name: 'problemType', length: 20 })
+  problemtype: string;
 
   @Column('int', { name: 'year' })
   year: number;

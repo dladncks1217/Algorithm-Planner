@@ -56,16 +56,17 @@ export class YearService {
 
   async addProblems(
     problemname: string,
-    types: string,
+    problemtype: string,
     year: number,
     solvedate: string,
     success: string,
     review: string,
   ) {
     try {
+      console.log('asdf');
       let result = await this.problemRepository.save({
         problemname,
-        types,
+        problemtype,
         year,
         solvedate,
         success,
