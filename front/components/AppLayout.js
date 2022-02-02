@@ -1,6 +1,7 @@
 import React from "react";
 import { Menu, Row, Col } from "antd";
 import Link from "next/link";
+import AddProblems from "./AddProblems";
 
 const AppLayout = ({ children }) => {
   return (
@@ -24,7 +25,7 @@ const AppLayout = ({ children }) => {
       </Menu>
       <Row>
         <Col xs={24} md={6}>
-          asdf
+          <AddProblems />
         </Col>
         <Col xs={24} md={12}>
           {children}
