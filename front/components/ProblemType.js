@@ -1,13 +1,7 @@
 import { Select } from "antd";
 import React, { useState } from "react";
 
-const ProblemType = () => {
-  const [select, onChangeSelect] = useState("구현");
-
-  const setSelect = (e) => {
-    console.log(e.target.innerText);
-    onChangeSelect(e.target.innerText);
-  };
+const ProblemType = ({ type, onChangeType }) => {
   const problemtype = [
     "구현",
     "해시",
@@ -31,7 +25,7 @@ const ProblemType = () => {
     "기타",
   ];
   return (
-    <Select onClick={setSelect} value={select}>
+    <Select onClick={onChangeType} value={type}>
       {problemtype.map((v) => {
         return (
           <Select.Option key={v} value={v}>

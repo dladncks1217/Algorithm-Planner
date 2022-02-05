@@ -4,7 +4,7 @@ import ProblemType from "./ProblemType";
 
 const AddProblems = () => {
   const [name, setName] = useState("");
-  const [type, setType] = useState("");
+  const [type, setType] = useState("구현");
   const [year, setYear] = useState("");
   const [date, setDate] = useState("");
   const [isCorrect, setIsCorrect] = useState("");
@@ -19,7 +19,7 @@ const AddProblems = () => {
   });
 
   const onChangeType = useCallback((e) => {
-    setType(e.target.value);
+    setType(e.target.innerText);
   });
 
   const onChangeYear = useCallback((e) => {
@@ -53,7 +53,7 @@ const AddProblems = () => {
         <Input onChange={onChangeName} />
       </Form.Item>
       <Form.Item label="문제 타입">
-        <ProblemType onChange={onChangeType} />
+        <ProblemType onChangeType={onChangeType} type={type} />
       </Form.Item>
       <Form.Item label="풀이 년도">
         <Input onChange={onChangeYear} />
