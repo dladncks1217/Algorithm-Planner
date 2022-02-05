@@ -5,8 +5,8 @@ const ProblemType = () => {
   const [select, onChangeSelect] = useState("구현");
 
   const setSelect = (e) => {
-    console.log(e.target.value);
-    onChangeSelect(e.target.value);
+    console.log(e.target.innerText);
+    onChangeSelect(e.target.innerText);
   };
   const problemtype = [
     "구현",
@@ -31,7 +31,7 @@ const ProblemType = () => {
     "기타",
   ];
   return (
-    <Select onClick={setSelect}>
+    <Select onClick={setSelect} value={select}>
       {problemtype.map((v) => {
         return (
           <Select.Option key={v} value={v}>
