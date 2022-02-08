@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from "react";
 import { Form, Input, Button, Switch } from "antd";
 import ProblemType from "./ProblemType";
+import { useDispatch } from "react-redux";
+import { addProblemAction } from "../actions";
 
 const AddProblems = () => {
   const [name, setName] = useState("");
@@ -10,8 +12,20 @@ const AddProblems = () => {
   const [isCorrect, setIsCorrect] = useState("");
   const [review, setReview] = useState("");
 
+  const dispatch = useDispatch();
+
   const onSubmit = useCallback((e) => {
     console.log(name, type, year, date, isCorrect, review);
+    dispatch(
+      addProblemAction({
+        name,
+        type,
+        year,
+        date,
+        isCorrect,
+        review,
+      })
+    );
   });
 
   const onChangeName = useCallback((e) => {

@@ -31,6 +31,7 @@ export const addProblemSlice = createSlice({
     [addProblemAction.fulfilled](state, action) {
       state.problemAdded = true;
       state.problemAdding = false;
+      state.data = action.payload;
     },
     [addProblemAction.rejected](state, action) {
       state.problemAdding = false;
@@ -51,6 +52,7 @@ export const problem2021Slice = createSlice({
     [get2021ProblemAction.pending](state, action) {
       state.problemLoading = false;
       state.problemLoaded = true;
+      state.data = action.payload;
     },
     [get2021ProblemAction.pending](state, action) {
       state.problemLoaded = false;
@@ -71,6 +73,7 @@ export const problem2022Slice = createSlice({
     [get2022ProblemAction.pending](state, action) {
       state.problemLoading = false;
       state.problemLoaded = true;
+      state.data = action.payload;
     },
     [get2022ProblemAction.pending](state, action) {
       state.problemLoaded = false;
@@ -91,6 +94,7 @@ export const getNotReviewedProblemSlice = createSlice({
     [getNotReviewedProblemAction.pending](state, action) {
       state.problemLoading = false;
       state.problemLoaded = true;
+      state.data = action.payload;
     },
     [getNotReviewedProblemAction.pending](state, action) {
       state.problemLoaded = false;
@@ -111,6 +115,7 @@ export const getReviewedProblemSlice = createSlice({
     [getReviewedProblemAction.pending](state, action) {
       state.problemLoading = false;
       state.problemLoaded = true;
+      state.data = action.payload;
     },
     [getReviewedProblemAction.pending](state, action) {
       state.problemLoaded = false;
@@ -131,6 +136,7 @@ export const getTypeProblemSlice = createSlice({
     [getTypeProblemAction.pending](state, action) {
       state.problemLoading = false;
       state.problemLoaded = true;
+      state.data = action.payload;
     },
     [getTypeProblemAction.pending](state, action) {
       state.problemLoaded = false;

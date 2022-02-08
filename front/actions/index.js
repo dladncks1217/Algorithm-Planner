@@ -6,9 +6,9 @@ axios.defaults.baseURL = "http://localhost:8000";
 export const addProblemAction = createAsyncThunk(
   "problem/update",
   async (data, ThunkAPI) => {
-    console.log(data);
+    console.dir(data);
     const result = axios.post("/year/add", {
-      problem: data.name,
+      problemname: data.name,
       problemtype: data.type,
       year: data.year,
       solvedate: data.date,
