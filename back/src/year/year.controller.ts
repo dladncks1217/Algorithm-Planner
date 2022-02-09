@@ -1,5 +1,6 @@
 import { Body, Controller, Param, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+
 import { ProblemAddtDto } from './dto/save.request.dto';
 import { YearService } from './year.service';
 
@@ -7,6 +8,15 @@ import { YearService } from './year.service';
 @Controller('year')
 export class YearController {
   constructor(private yearService: YearService) {}
+
+  @ApiResponse({
+    type: ProblemAddtDto,
+  })
+  @ApiOperation({ summary: '2021년에 푼 문제 조회' })
+  @Post('/all')
+  async getAllProblems() {
+    return await this.yearService.getAllProblems();
+  }
 
   @ApiResponse({
     type: ProblemAddtDto,

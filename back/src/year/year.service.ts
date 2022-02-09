@@ -9,6 +9,14 @@ export class YearService {
     @InjectRepository(Problems)
     private problemRepository: Repository<Problems>,
   ) {}
+
+  async getAllProblems() {
+    let result = await this.problemRepository.find({
+      where: {},
+    });
+    return result;
+  }
+
   async get2021Problems() {
     let result = await this.problemRepository.find({
       where: {
