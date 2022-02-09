@@ -12,7 +12,7 @@ export class YearController {
   @ApiResponse({
     type: ProblemAddtDto,
   })
-  @ApiOperation({ summary: '2021년에 푼 문제 조회' })
+  @ApiOperation({ summary: '전체 문제 조회' })
   @Post('/all')
   async getAllProblems() {
     return await this.yearService.getAllProblems();
@@ -33,7 +33,7 @@ export class YearController {
   @ApiOperation({ summary: '2022년에 푼 문제 조회' })
   @Post('/2022')
   async get2022Problems() {
-    return await this.yearService.get2021Problems();
+    return await this.yearService.get2022Problems();
   }
 
   @ApiResponse({

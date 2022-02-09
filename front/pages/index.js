@@ -1,5 +1,5 @@
-import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
+import React, { useCallback, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { getProblemListAction } from "../actions";
 import ProblemList from "../components/ProblemList";
 
@@ -8,9 +8,12 @@ const Index = () => {
   const getProblemList = useCallback((e) => {
     dispatch(getProblemListAction());
   });
+  useEffect(() => {
+    getProblemList();
+  }, []);
   return (
-    <div onLoad={getProblemList}>
-      <ProblemList />
+    <div>
+      <ProblemList onLoad={getProblemList} />
     </div>
   );
 };
