@@ -4,6 +4,7 @@ import {
   get2021ProblemAction,
   get2022ProblemAction,
   getNotReviewedProblemAction,
+  getProblemListAction,
   getReviewedProblemAction,
   getTypeProblemAction,
 } from "../actions";
@@ -19,8 +20,8 @@ export const initialState = {
   problemLoadErrorReason: null,
 };
 
-export const addProblemSlice = createSlice({
-  name: "addProblem",
+export const problemSlice = createSlice({
+  name: "Problem",
   initialState,
   reducers: {},
   extraReducers: {
@@ -37,108 +38,81 @@ export const addProblemSlice = createSlice({
       state.problemAdding = false;
       state.problemAddErrorReason = action.error;
     },
-  },
-});
-
-export const problem2021Slice = createSlice({
-  name: "2021Problem",
-  initialState,
-  reducers: {},
-  extraReducers: {
     [get2021ProblemAction.pending](state, action) {
       state.problemLoaded = false;
       state.problemLoading = true;
     },
-    [get2021ProblemAction.pending](state, action) {
+    [get2021ProblemAction.fulfilled](state, action) {
       state.problemLoading = false;
       state.problemLoaded = true;
       state.data = action.payload;
     },
-    [get2021ProblemAction.pending](state, action) {
+    [get2021ProblemAction.rejected](state, action) {
       state.problemLoaded = false;
       state.problemLoadErrorReason = action.error;
     },
-  },
-});
-
-export const problem2022Slice = createSlice({
-  name: "2022Problems",
-  initialState,
-  reducers: {},
-  extraReducers: {
     [get2022ProblemAction.pending](state, action) {
       state.problemLoaded = false;
       state.problemLoading = true;
     },
-    [get2022ProblemAction.pending](state, action) {
+    [get2022ProblemAction.fulfilled](state, action) {
       state.problemLoading = false;
       state.problemLoaded = true;
       state.data = action.payload;
     },
-    [get2022ProblemAction.pending](state, action) {
+    [get2022ProblemAction.rejected](state, action) {
       state.problemLoaded = false;
       state.problemLoadErrorReason = action.error;
     },
-  },
-});
-
-export const getNotReviewedProblemSlice = createSlice({
-  name: "notReviewedProblems",
-  initialState,
-  reducers: {},
-  extraReducers: {
     [getNotReviewedProblemAction.pending](state, action) {
       state.problemLoaded = false;
       state.problemLoading = true;
     },
-    [getNotReviewedProblemAction.pending](state, action) {
+    [getNotReviewedProblemAction.fulfilled](state, action) {
       state.problemLoading = false;
       state.problemLoaded = true;
       state.data = action.payload;
     },
-    [getNotReviewedProblemAction.pending](state, action) {
+    [getNotReviewedProblemAction.rejected](state, action) {
       state.problemLoaded = false;
       state.problemLoadErrorReason = action.error;
     },
-  },
-});
-
-export const getReviewedProblemSlice = createSlice({
-  name: "reviewedProblems",
-  initialState,
-  reducers: {},
-  extraReducers: {
     [getReviewedProblemAction.pending](state, action) {
       state.problemLoaded = false;
       state.problemLoading = true;
     },
-    [getReviewedProblemAction.pending](state, action) {
+    [getReviewedProblemAction.fulfilled](state, action) {
       state.problemLoading = false;
       state.problemLoaded = true;
       state.data = action.payload;
     },
-    [getReviewedProblemAction.pending](state, action) {
+    [getReviewedProblemAction.rejected](state, action) {
       state.problemLoaded = false;
       state.problemLoadErrorReason = action.error;
     },
-  },
-});
-
-export const getTypeProblemSlice = createSlice({
-  name: "typeProblems",
-  initialState,
-  reducers: {},
-  extraReducers: {
     [getTypeProblemAction.pending](state, action) {
       state.problemLoaded = false;
       state.problemLoading = true;
     },
-    [getTypeProblemAction.pending](state, action) {
+    [getTypeProblemAction.fulfilled](state, action) {
       state.problemLoading = false;
       state.problemLoaded = true;
       state.data = action.payload;
     },
-    [getTypeProblemAction.pending](state, action) {
+    [getTypeProblemAction.rejected](state, action) {
+      state.problemLoaded = false;
+      state.problemLoadErrorReason = action.error;
+    },
+    [getProblemListAction.pending](state, action) {
+      state.problemLoaded = false;
+      state.problemLoading = true;
+    },
+    [getProblemListAction.fulfilled](state, action) {
+      state.problemLoading = false;
+      state.problemLoaded = true;
+      state.data = action.payload;
+    },
+    [getProblemListAction.rejected](state, action) {
       state.problemLoaded = false;
       state.problemLoadErrorReason = action.error;
     },
