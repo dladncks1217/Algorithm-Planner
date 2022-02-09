@@ -19,6 +19,14 @@ export const addProblemAction = createAsyncThunk(
   }
 );
 
+export const getProblemListAction = createAsyncThunk(
+  "problem/all",
+  async (data, ThunkAPI) => {
+    const result = axios.post("/year/all");
+    return result;
+  }
+);
+
 export const get2021ProblemAction = createAsyncThunk(
   "problem/2021",
   async (data, ThunkAPI) => {
