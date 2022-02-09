@@ -1,7 +1,7 @@
 import { Body, Controller, Param, Post } from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 
-import { ProblemAddtDto } from './dto/save.request.dto';
+import { ProblemAddtDto } from '../common/dto/save.request.dto';
 import { ProblemService } from './problem.service';
 
 @ApiTags('problem')

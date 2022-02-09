@@ -12,6 +12,9 @@ export class Problems {
   @PrimaryGeneratedColumn({ type: 'int', name: 'id' })
   id: number;
 
+  @Column('varchar', { name: 'site', length: 20 })
+  site: string;
+
   @Column('varchar', { name: 'problemName', length: 30 })
   problemname: string;
 

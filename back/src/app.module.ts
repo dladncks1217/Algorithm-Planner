@@ -4,22 +4,22 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Problems } from './entities/problems';
-import { YearController } from './year/year.controller';
-import { YearModule } from './year/year.module';
+import { ProblemController } from './problem/problem.controller';
+import { ProblemModule } from './problem/problem.module';
 import * as ormconfig from '../ormconfig';
-import { YearService } from './year/year.service';
+import { ProblemService } from './problem/problem.service';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    YearModule,
+    ProblemModule,
     Problems,
     TypeOrmModule.forRoot(ormconfig),
     TypeOrmModule.forFeature([Problems]), // 추가
   ],
-  controllers: [AppController, YearController],
-  providers: [AppService, YearService],
+  controllers: [AppController, ProblemController],
+  providers: [AppService, ProblemService],
 })
 export class AppModule {}

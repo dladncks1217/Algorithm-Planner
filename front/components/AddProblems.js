@@ -63,22 +63,22 @@ const AddProblems = () => {
       }}
       layout="horizontal"
     >
-      <Form.Item label="문제이름">
+      <Form.Item label="문제 이름 ">
         <Input onChange={onChangeName} />
       </Form.Item>
-      <Form.Item label="문제 타입">
+      <Form.Item label="문제 타입 ">
         <ProblemType onChangeType={onChangeType} type={type} />
       </Form.Item>
-      <Form.Item label="풀이 년도">
+      <Form.Item label="풀이 년도 ">
         <Input onChange={onChangeYear} />
       </Form.Item>
-      <Form.Item label="풀이 날짜">
+      <Form.Item label="풀이 날짜 ">
         <Input onChange={onChangeDate} />
       </Form.Item>
-      <Form.Item label="정답 여부" valuePropName="checked">
+      <Form.Item label="정답 여부 " valuePropName="checked">
         <Switch onChange={onChangeIsCorrect} />
       </Form.Item>
-      <Form.Item label="복습 여부" valuePropName="checked">
+      <Form.Item label="복습 여부 " valuePropName="checked">
         <Switch onChange={onChangeReview} />
       </Form.Item>
 
