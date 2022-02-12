@@ -54,10 +54,19 @@ export class ProblemService {
   }
 
   async typeProblem(problemtype: string) {
-    console.log('asdf');
     let result = await this.problemRepository.find({
       where: {
         problemtype,
+      },
+    });
+    return result;
+  }
+
+  async siteProblem(site: string) {
+    console.log(site + '입니다');
+    let result = await this.problemRepository.find({
+      where: {
+        site,
       },
     });
     return result;

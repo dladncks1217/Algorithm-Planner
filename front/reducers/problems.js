@@ -7,6 +7,7 @@ import {
   getProblemListAction,
   getReviewedProblemAction,
   getTypeProblemAction,
+  getSiteProblemAction,
 } from "../actions";
 
 export const initialState = {
@@ -113,6 +114,19 @@ export const problemSlice = createSlice({
       state.data = action.payload;
     },
     [getProblemListAction.rejected](state, action) {
+      state.problemLoaded = false;
+      state.problemLoadErrorReason = action.error;
+    },
+    [getSiteProblemAction.pending](state, action) {
+      state.problemLoaded = false;
+      state.problemLoading = true;
+    },
+    [getSiteProblemAction.fulfilled](state, action) {
+      state.problemLoading = false;
+      state.problemLoaded = true;
+      state.data = action.payload;
+    },
+    [getSiteProblemAction.rejected](state, action) {
       state.problemLoaded = false;
       state.problemLoadErrorReason = action.error;
     },

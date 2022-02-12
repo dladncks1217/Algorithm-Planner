@@ -4,6 +4,7 @@ import Link from "next/link";
 import AddProblems from "./AddProblems";
 import { Provider } from "react-redux";
 import { store } from "../store";
+import SelectSite from "./SelectSite";
 
 const AppLayout = ({ children }) => {
   return (
@@ -24,6 +25,9 @@ const AppLayout = ({ children }) => {
             <Link href="/2022">
               <a>2022</a>
             </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <SelectSite />
           </Menu.Item>
         </Menu>
         <Row>

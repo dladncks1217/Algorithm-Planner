@@ -57,12 +57,25 @@ export class ProblemController {
   @ApiResponse({
     type: ProblemAddtDto,
   })
+  @ApiOperation({ summary: '문제 사이트별 조회' })
+  @Post('/site/:site(*)')
+  async siteProblem(@Param('site') site: string) {
+    return await this.problemService.typeProblem(site);
+  }
+
+  @ApiResponse({
+    type: ProblemAddtDto,
+  })
   @ApiOperation({ summary: '문제 타입별 조회' })
   @Post('/typecheck/:type(*)')
   async typeProblem(@Param('type') problemtype: string) {
     return await this.problemService.typeProblem(problemtype);
   }
 
+  @ApiResponse({
+    type: ProblemAddtDto,
+  })
+  @ApiOperation({ summary: '문제 추가' })
   @Post('/add')
   async addProblems(@Body() body: ProblemAddtDto) {
     return await this.problemService.addProblems(
