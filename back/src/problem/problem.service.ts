@@ -38,7 +38,7 @@ export class ProblemService {
   async reviewed() {
     let result = await this.problemRepository.find({
       where: {
-        review: 'true',
+        review: '1',
       },
     });
     return result;
@@ -47,7 +47,7 @@ export class ProblemService {
   async notReviewed() {
     let result = await this.problemRepository.find({
       where: {
-        review: 'false',
+        review: '0',
       },
     });
     return result;
@@ -63,12 +63,12 @@ export class ProblemService {
   }
 
   async siteProblem(site: string) {
-    console.log(site + '입니다');
     let result = await this.problemRepository.find({
       where: {
         site,
       },
     });
+    console.log(result);
     return result;
   }
 

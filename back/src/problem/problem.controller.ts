@@ -60,6 +60,7 @@ export class ProblemController {
   @ApiOperation({ summary: '문제 사이트별 조회' })
   @Post('/site/:site(*)')
   async siteProblem(@Param('site') site: string) {
+    console.log(site + ' 사이트');
     return await this.problemService.typeProblem(site);
   }
 
