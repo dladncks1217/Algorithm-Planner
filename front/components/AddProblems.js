@@ -6,6 +6,7 @@ import { addProblemAction } from "../actions";
 
 const AddProblems = () => {
   const [name, setName] = useState("");
+  const [site, setSite] = useState("");
   const [type, setType] = useState("구현");
   const [year, setYear] = useState("");
   const [date, setDate] = useState("");
@@ -13,12 +14,12 @@ const AddProblems = () => {
   const [review, setReview] = useState("");
 
   const dispatch = useDispatch();
-
-  const onSubmit = useCallback((e) => {
-    console.log(name, type, year, date, isCorrect, review);
+  const onSubmit = useCallback(() => {
+    console.log(name, site, type, year, date, isCorrect, review);
     dispatch(
       addProblemAction({
         name,
+        site,
         type,
         year,
         date,
@@ -27,27 +28,24 @@ const AddProblems = () => {
       })
     );
   });
-
   const onChangeName = useCallback((e) => {
     setName(e.target.value);
   });
-
+  const onChangeSite = useCallback((e) => {
+    setSite(e.target.value);
+  });
   const onChangeType = useCallback((e) => {
     setType(e.target.innerText);
   });
-
   const onChangeYear = useCallback((e) => {
     setYear(e.target.value);
   });
-
   const onChangeDate = useCallback((e) => {
     setDate(e.target.value);
   });
-
   const onChangeIsCorrect = useCallback((e) => {
     setIsCorrect(e);
   });
-
   const onChangeReview = useCallback((e) => {
     setReview(e);
   });
@@ -65,6 +63,9 @@ const AddProblems = () => {
     >
       <Form.Item label="문제 이름 ">
         <Input onChange={onChangeName} />
+      </Form.Item>
+      <Form.Item label="사이트 ">
+        <Input onChange={onChangeSite} />
       </Form.Item>
       <Form.Item label="문제 타입 ">
         <ProblemType onChangeType={onChangeType} type={type} />
@@ -88,5 +89,4 @@ const AddProblems = () => {
     </Form>
   );
 };
-
 export default AddProblems;

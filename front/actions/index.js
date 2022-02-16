@@ -9,6 +9,7 @@ export const addProblemAction = createAsyncThunk(
     console.dir(data);
     const result = axios.post("/problem/add", {
       problemname: data.name,
+      site: data.site,
       problemtype: data.type,
       year: data.year,
       solvedate: data.date,

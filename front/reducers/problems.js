@@ -11,7 +11,8 @@ import {
 } from "../actions";
 
 export const initialState = {
-  data: "",
+  data: [],
+  addData: "",
   getProblemErrorReason: null,
   problemAdding: false,
   problemAdded: false,
@@ -33,7 +34,7 @@ export const problemSlice = createSlice({
     [addProblemAction.fulfilled](state, action) {
       state.problemAdded = true;
       state.problemAdding = false;
-      state.data = action.payload;
+      state.addData = action.payload;
     },
     [addProblemAction.rejected](state, action) {
       state.problemAdding = false;
